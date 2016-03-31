@@ -9,8 +9,13 @@
 # atom.workspace.observeTextEditors (editor) ->
 #   editor.onDidSave ->
 #     console.log "Saved! #{editor.getPath()}"
-atom.commands.add 'atom-workspace', 'custom:colonize', ->
+atom.commands.add 'atom-workspace', 'custom:semi-colonize', ->
   editor = atom.workspace.getActiveTextEditor()
   editor.moveToEndOfLine()
   editor.insertText(";")
   editor.insertNewline()
+
+atom.commands.add 'atom-workspace', 'custom:colonize', ->
+  editor = atom.workspace.getActiveTextEditor()
+  editor.moveToEndOfLine()
+  editor.insertText(" : ")
